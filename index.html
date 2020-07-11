@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="main">
+    <h2>Stop Watch</h2>
+    <div class="div" id="div">
+    <script>
+        function displaytime(){
+            var date=new Date();
+            var hh=date.getHours();
+            var mm=date.getMinutes();
+            var ss=date.getSeconds();
+            var time;
+            if(hh==0){
+                hh=12;
+            }
+            else if(hh>12){
+                hh=hh-12;
+            }
+            if(hh<10){
+                hh= "0"+hh;
+            }
+            else if(mm<10){
+                mm="0"+mm;
+            }
+            else if(ss<10){
+                ss="0"+ss;
+            }
+            if(hh<=12){
+               time=hh + ":" +mm+ ":" +ss+ " PM";
+            }
+            else{
+               time=hh + ":" +mm+ ":" +ss+ " AM";
+            }
+            document.getElementById("div").innerText=time;
+            document.getElementById("div").textContent=time;
+            
+        }
+        setInterval(displaytime,1000);
+    </script>
+    </div>
+    <div class="div1">
+    <h1 id="min">0</h1>
+    <h1 id="sec">0</h1>
+    <h1 id="msec">0</h1>
+    </div>
+    <div>
+        <button id="button" onclick="start()" class="btn btn-lg btn-primary">start</button>
+        <button onclick="stop()" class="btn btn-lg btn-primary">stop</button>
+        <button onclick="reset()" class="btn btn-lg btn-primary">reset</button>
+    </div>
+    </div>
+</body>
+    <script src="app.js"></script>
+</html>
